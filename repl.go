@@ -21,6 +21,7 @@ func startRepl() {
 		commandName := words[0]
 
 		command, exists := getCommands()[commandName]
+
 		if exists {
 			comm := command.callback()
 			if comm != nil {
@@ -50,6 +51,17 @@ type commandCli struct {
 
 func getCommands() map[string]commandCli {
 	return map[string]commandCli{
+
+		"pokemon": {
+			name:        "pokemon",
+			description: "Searching for pokemon",
+			callback:    commandPokemon,
+		},
+		"map": {
+			name:        "map",
+			description: "Mapping",
+			callback:    commandMap,
+		},
 		"exit": {
 			name:        "exit",
 			description: "Exiting the pokdex",
