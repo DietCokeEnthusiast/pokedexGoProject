@@ -11,7 +11,7 @@ import (
 func commandMap() error { //write function call in repl.go next pls Nathan
 	fmt.Println("Mapping")
 
-	resp, err := http.Get(URL)
+	resp, err := http.Get(URL + "location/")
 
 	if err != nil {
 		log.Fatal(err)
@@ -23,15 +23,13 @@ func commandMap() error { //write function call in repl.go next pls Nathan
 	resp.Body.Close()
 
 	type getData struct {
-		Name      string `json:"name"`
-		Height    int    `json:"height"`
-		Abilities string `json:"id"`
+		Name string `json:"name"`
 	}
 
 	var dataGotten getData
 
 	err = json.Unmarshal(body, &dataGotten)
-	fmt.Println(dataGotten.Name, dataGotten.Height) // dataGotten.url)
+	fmt.Println(dataGotten.Name)
 	return nil
 
 }

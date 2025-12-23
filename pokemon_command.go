@@ -7,14 +7,16 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 )
 
 func commandPokemon() error {
 	fmt.Println("Please enter a pokemon")
+	input := bufio.NewScanner(os.Stdin)
+	input.Scan()
+	pokemonName := input.Text()
 
-	input = bufio.NewScanner()
-
-	resp, err := http.Get(URL)
+	resp, err := http.Get(URL + "pokemon/" + pokemonName)
 
 	if err != nil {
 		log.Fatal(err)

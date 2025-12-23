@@ -8,7 +8,7 @@ import (
 )
 
 func startRepl() {
-	fmt.Println("HELELo")
+	fmt.Println("Enter one of the following commands:\nmap\npokemon\nexit")
 	reader := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print("Pokedex > ")
@@ -54,7 +54,7 @@ func getCommands() map[string]commandCli {
 
 		"pokemon": {
 			name:        "pokemon",
-			description: "Searching for pokemon",
+			description: "Searching for a pokemon",
 			callback:    commandPokemon,
 		},
 		"map": {
