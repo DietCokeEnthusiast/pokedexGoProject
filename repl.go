@@ -50,6 +50,12 @@ type commandCli struct {
 
 func getCommands() map[string]commandCli {
 	return map[string]commandCli{
+
+		"map": {
+			name:        "mapf",
+			description: "Displaying locations",
+			callback:    commandMapf,
+		},
 		"exit": {
 			name:        "exit",
 			description: "Exiting the pokdex",

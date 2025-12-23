@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func commandExit() error { //write function call in repl.go next pls Nathan
+func commandExit() error {
 	fmt.Println("Exiting the Pokedex now ...")
 	os.Exit(0)
 	return nil
