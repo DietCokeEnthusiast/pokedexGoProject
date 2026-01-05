@@ -27,15 +27,10 @@ func commandPokemon() error {
 
 	resp.Body.Close()
 
-	type getData struct {
-		Name   string `json:"name"`
-		Height int    `json:"height"`
-	}
-
 	var dataGotten getData
 
 	err = json.Unmarshal(body, &dataGotten)
-	fmt.Println(dataGotten.Name, dataGotten.Height) // dataGotten.url)
+	fmt.Println(dataGotten, dataGotten) // dataGotten.url)
 	return nil
 
 }

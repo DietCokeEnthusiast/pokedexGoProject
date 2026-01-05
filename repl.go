@@ -8,7 +8,14 @@ import (
 )
 
 func startRepl() {
-	fmt.Println("Enter one of the following commands:\nmap\npokemon\nexit")
+	fmt.Println("Enter one of the following commands:")
+
+	// this loop is for you gatlin
+	for _, cmd := range getCommands() {
+		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
+
+	}
+
 	reader := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print("Pokedex > ")
@@ -57,10 +64,15 @@ func getCommands() map[string]commandCli {
 			description: "Searching for a pokemon",
 			callback:    commandPokemon,
 		},
-		"map": {
-			name:        "map",
+		"mapf": {
+			name:        "mapf",
 			description: "Mapping",
-			callback:    commandMap,
+			callback:    commandMapf,
+		},
+		"mapb": {
+			name:        "mapb",
+			description: "Get the previous page of locations",
+			callback:    commandMapb,
 		},
 		"exit": {
 			name:        "exit",
